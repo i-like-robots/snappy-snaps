@@ -5,9 +5,6 @@ import path from 'node:path'
 import assert from 'node:assert'
 import subject from '../lib/snappy-snaps.js'
 
-// const expected = snap(name, data)
-// assert.deepEquals(expected, data)
-
 const TEST_PATH = url.fileURLToPath(import.meta.url)
 const SNAPSHOTS_DIR = path.join(path.dirname(TEST_PATH), '__snapshots__')
 const SNAPSHOT_NAME = `${path.basename(TEST_PATH)}.snap`
@@ -69,13 +66,13 @@ describe('lib/snappy-snaps', () => {
   })
 
   it('warns when snapshots are past their expiry date', async () => {
-    const fn = mock.method(console, 'log')
+    const fn = mock.method(console, 'warn')
 
     await subject('dog', { name: 'Ness' }, { expires: Date.now() - 1 })
-    await subject('dog', null)
+    assert.equal(fn.mock.calls.length, 0)
 
-    assert.match(fn.mock.calls[0].arguments[0], /Updating/)
-    assert.match(fn.mock.calls[1].arguments[0], /expired/)
+    await subject('dog', null)
+    assert.match(fn.mock.calls[0].arguments[0], /expired/)
 
     fn.mock.restore()
   })

@@ -1,7 +1,7 @@
 {
   "name": "snappy-snaps",
   "version": "0.0.0",
-  "description": "",
+  "description": "A simple snapshot utility to save and retrieve data from disk for use when testing. Works with any testing framework.",
   "type": "module",
   "main": "src/snappy-snaps.js",
   "types": "src/types.d.ts",
