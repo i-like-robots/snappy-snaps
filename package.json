@@ -1,6 +1,6 @@
 {
   "name": "snappy-snaps",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny utility to save and retrieve snapshots when testing. Works with any testing framework.",
   "type": "module",
   "exports": "./lib/snappy-snaps.js",
