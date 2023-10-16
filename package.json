@@ -1,12 +1,12 @@
 {
   "name": "snappy-snaps",
   "version": "0.0.0",
-  "description": "A simple snapshot utility to save and retrieve data from disk for use when testing. Works with any testing framework.",
+  "description": "A tiny utility to save and retrieve snapshots when testing. Works with any testing framework.",
   "type": "module",
   "main": "src/snappy-snaps.js",
   "types": "src/types.d.ts",
   "scripts": {
-    "lint": "eslint . --ext ts,tsx,js,jsx",
+    "lint": "eslint . --ext js,jsx",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,json,yml}'",
     "spec": "node --test --test-reporter spec",
     "verify": "npm run lint && npm run format",

@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/i-like-robots/snappy-snaps/blob/main/LICENSE) [![Build Status](https://travis-ci.org/i-like-robots/snappy-snaps.svg?branch=main)](https://travis-ci.org/i-like-robots/snappy-snaps) [![npm version](https://img.shields.io/npm/v/snappy-snaps.svg?style=flat)](https://www.npmjs.com/package/snappy-snaps)
 
-A tiny snapshot utility to save and retrieve data from disk for use when testing. Works with any testing framework.
+A tiny utility to save and retrieve snapshots when testing. Works with any testing framework.
 
 ```js
 import snap from 'snappy-snaps'
@@ -31,7 +31,7 @@ _Please note_ this package is [ESM](https://nodejs.org/api/esm.html) only.
 
 ## Usage
 
-The purpose of snapshot testing is to ensure that the output of a piece of code remains the same over time. If you'd like to learn more, Browserstack maintain [a detailed guide to snapshot testing](https://www.browserstack.com/guide/snapshot-testing).
+The purpose of snapshot testing is to ensure that the output of a piece of code remains the same over time. The first time your test code is run the data passed to the `snap()` function will be stored in a file. On subsequent test runs the data will be retrieved from the file, enabling you to test if your code output is the same as the previously stored value.
 
 ```js
 import { test } from 'node:test'
@@ -48,9 +48,9 @@ test('Your API', async () => {
 })
 ```
 
-The first time your test code is run the data passed to the `snap()` function will be stored in a file. On subsequent test runs the data will be retrieved from the file, enabling you to test if your code output is the same as the previously stored value.
 
-The created snapshots should be committed with your other code changes, and reviewed as part of your code review process.
+
+The created snapshots should be committed with your other code changes, and reviewed as part of your code review process. If you'd like to learn more, Browserstack maintain [a detailed guide to snapshot testing](https://www.browserstack.com/guide/snapshot-testing).
 
 ### Updating snapshots
 
@@ -65,6 +65,25 @@ const ONE_YEAR = 1000 * 60 * 60 * 24 * 365
 snap('name', data, { expires: Date.now() + ONE_YEAR })
 ```
 
-### License
+## API
+
+
+### snap(key, value, [options] = {})
+
+Returns A promise that is fulfilled with the new or previously stored value.
+
+#### key
+
+A unique name to identify the snapshot.
+
+#### value
+
+A JSON serializable value to be stored.
+
+#### options
+
+Configuration options for the snapshot. Optional.
+
+## License
 
 This package is MIT licensed.
