@@ -1,6 +1,6 @@
 # snappy-snaps
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/i-like-robots/snappy-snaps/blob/main/LICENSE) ![build status](https://github.com/i-like-robots/snappy-snaps/actions/workflows/test.yml/badge.svg?branch=main) [![npm version](https://img.shields.io/npm/v/snappy-snaps.svg?style=flat)](https://www.npmjs.com/package/snappy-snaps)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/i-like-robots/snappy-snaps/blob/main/LICENSE) ![build status](https://github.com/i-like-robots/snappy-snapsz/actions/workflows/test.yml/badge.svg?branch=main) [![npm version](https://img.shields.io/npm/v/snappy-snaps.svg?style=flat)](https://www.npmjs.com/package/snappy-snaps)
 
 A tiny utility to save and retrieve snapshots when testing. Works with any testing framework.
 
@@ -83,6 +83,10 @@ A serializable value to be stored.
 #### options
 
 Configuration options for the snapshot. Optional.
+
+## Credits
+
+This plugin was based on the [`data-snapshot`](https://www.npmjs.com/package/data-snapshot) package and [snapshot implementation](https://github.com/vitest-dev/vitest/tree/76607ead169733f27e241554bca01f10e81ea849/packages/snapshot/src) from the Vitest test framework.
 
 ## License
 
