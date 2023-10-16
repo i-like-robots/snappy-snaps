@@ -48,7 +48,7 @@ test('Your API', async () => {
 })
 ```
 
-
+Snappy snaps uses [`serialize-javascript`](https://github.com/yahoo/serialize-javascript) to store values and not `JSON.stringify()` so it supports a wider range of data types including dates, maps, sets, functions, and regular expressions.
 
 The created snapshots should be committed with your other code changes, and reviewed as part of your code review process. If you'd like to learn more, Browserstack maintain [a detailed guide to snapshot testing](https://www.browserstack.com/guide/snapshot-testing).
 
@@ -78,7 +78,7 @@ A unique name to identify the snapshot.
 
 #### value
 
-A JSON serializable value to be stored.
+A serializable value to be stored.
 
 #### options
 
