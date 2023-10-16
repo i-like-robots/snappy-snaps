@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A tiny utility to save and retrieve snapshots when testing. Works with any testing framework.",
   "type": "module",
-  "main": "src/snappy-snaps.js",
-  "types": "src/types.d.ts",
+  "exports": "./lib/snappy-snaps.js",
+  "types": "./lib/types.d.ts",
   "scripts": {
     "lint": "eslint . --ext js,jsx",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,json,yml}'",
