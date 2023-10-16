@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/i-like-robots/snappy-snaps/blob/main/LICENSE) ![build status](https://github.com/i-like-robots/snappy-snaps/actions/workflows/test.yml/badge.svg?branch=main) [![npm version](https://img.shields.io/npm/v/snappy-snaps.svg?style=flat)](https://www.npmjs.com/package/snappy-snaps)
 
-A tiny utility to save and retrieve snapshots when testing. Works with any testing framework.
+A tiny utility to save and retrieve snapshots when testing. Works with any testing framework and can serialize almost anything.
 
 ```js
 import snap from 'snappy-snaps'
@@ -31,7 +31,7 @@ _Please note_ this package is [ESM](https://nodejs.org/api/esm.html) only.
 
 ## Usage
 
-The purpose of snapshot testing is to ensure that the output of a piece of code remains the same over time. The first time your test code is run the data passed to the `snap()` function will be stored in a file. On subsequent test runs the data will be retrieved from the file, enabling you to test if your code output is the same as the previously stored value.
+The purpose of snapshot testing is to ensure that the output of a piece of code remains the same over time. The first time your test code is run the data passed to the `snap()` function will be stored in a file on disk. On subsequent test runs the data will be retrieved from the file, enabling you to test if your code output is the same as the previously stored value.
 
 ```js
 import { test } from 'node:test'
@@ -48,13 +48,13 @@ test('Your API', async () => {
 })
 ```
 
-Snappy snaps uses [`serialize-javascript`](https://github.com/yahoo/serialize-javascript) to store values and not `JSON.stringify()` so it supports a wider range of data types including dates, maps, sets, functions, and regular expressions.
+Snappy snaps uses [`serialize-javascript`](https://github.com/yahoo/serialize-javascript) to serialize and store values rather than `JSON.stringify()` so it supports a wider range of data types including dates, maps, sets, functions, and regular expressions.
 
 The created snapshots should be committed with your other code changes, and reviewed as part of your code review process. If you'd like to learn more, Browserstack maintain [a detailed guide to snapshot testing](https://www.browserstack.com/guide/snapshot-testing).
 
 ### Updating snapshots
 
-You can update your snapshots by running your test command with a `--updateSnapshot` or `-u` flag or by deleting the snapshot file.
+You can update your snapshots by running your test command with a `--updateSnapshot` or `-u` flag, by deleting the snapshot file, or using the `update` option.
 
 ### Expiry
 
@@ -66,7 +66,6 @@ snap('name', data, { expires: Date.now() + ONE_YEAR })
 ```
 
 ## API
-
 
 ### snap(key, value, [options] = {})
 
@@ -82,7 +81,7 @@ A serializable value to be stored.
 
 #### options
 
-Configuration options for the snapshot. Optional.
+Configuration options for the snapshot.
 
 ## Credits
 
