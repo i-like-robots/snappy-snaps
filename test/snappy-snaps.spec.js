@@ -35,6 +35,28 @@ describe('lib/snappy-snaps', () => {
     assert.equal(data.name, 'Ness')
   })
 
+  it('can serialize dates, maps, sets, regexps and more', async () => {
+    await subject('superset', {
+      inf: Infinity,
+      date: new Date('Thu, 28 Apr 2016 22:02:17 GMT'),
+      map: new Map([['hello', 'world']]),
+      set: new Set([123, 456]),
+      fn: function echo(arg) {
+        return arg
+      },
+      re: /([^\s]+)/g,
+    })
+
+    const data = await subject('superset')
+
+    assert.ok(data.inf === Infinity)
+    assert.ok(data.date instanceof Date)
+    assert.ok(data.map instanceof Map)
+    assert.ok(data.set instanceof Set)
+    assert.ok(data.fn instanceof Function)
+    assert.ok(data.re instanceof RegExp)
+  })
+
   it('appends to the snapshot file when called with a new key', async () => {
     await subject('dog', { name: 'Ness' })
     await subject('cat', { name: 'Luna' })

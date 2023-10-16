@@ -27,7 +27,8 @@
   "homepage": "https://github.com/i-like-robots/snappy-snaps",
   "dependencies": {
     "callsites": "^4.1.0",
-    "chalk": "^5.3.0"
+    "chalk": "^5.3.0",
+    "serialize-javascript": "^6.0.1"
   },
   "devDependencies": {
     "eslint": "^8.50.0",
