@@ -1,7 +1,7 @@
 {
   "name": "snappy-snaps",
   "version": "1.0.1",
-  "description": "A tiny snapshot tool which is compatible with any testing framework and able to serialize almost anything.",
+  "description": "Snappy Snaps is a tiny snapshot testing tool which can be used with any test framework and is able to serialize almost anything.",
   "type": "module",
   "exports": "./lib/snappy-snaps.js",
   "types": "./lib/types.d.ts",
