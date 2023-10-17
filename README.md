@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/i-like-robots/snappy-snaps/blob/main/LICENSE) ![build status](https://github.com/i-like-robots/snappy-snaps/actions/workflows/test.yml/badge.svg?branch=main) [![npm version](https://img.shields.io/npm/v/snappy-snaps.svg?style=flat)](https://www.npmjs.com/package/snappy-snaps)
 
-A tiny utility to save and retrieve snapshots when testing. Works with any testing framework and can serialize almost anything.
+A tiny snapshot tool which is compatible with any testing framework and able to serialize almost anything.
 
 ```js
 import snap from 'snappy-snaps'
@@ -50,13 +50,15 @@ test('Your API', async () => {
 
 Snappy snaps uses [`serialize-javascript`](https://github.com/yahoo/serialize-javascript) to serialize and store values rather than `JSON.stringify()` so it supports a wider range of data types including dates, maps, sets, functions, and regular expressions.
 
+This package does not include any tooling for writing assertions on your data, for this you can use Node's own `assert` module, packages like [`fast-deep-equal`](https://github.com/epoberezkin/fast-deep-equal) or an assertion library.
+
 The created snapshots should be committed with your other code changes, and reviewed as part of your code review process. If you'd like to learn more, Browserstack maintain [a detailed guide to snapshot testing](https://www.browserstack.com/guide/snapshot-testing).
 
 ### Updating snapshots
 
 You can update your snapshots by running your test command with a `--updateSnapshot` or `-u` flag, by deleting the snapshot file, or using the `update` option.
 
-### Expiry
+### Expiring snapshots
 
 To be reminded to update your snapshots periodically you can set a future expiry date using the `expires` option and providing a timestamp. Running a test after the expiry date will output a warning.
 
