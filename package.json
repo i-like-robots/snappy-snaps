@@ -14,7 +14,10 @@
     "prepublishOnly": "npm run test",
     "prepare": "husky install"
   },
-  "keywords": [],
+  "keywords": [
+    "snapshot",
+    "testing"
+  ],
   "author": "Matt Hinchliffe",
   "license": "MIT",
   "repository": {
