@@ -6,12 +6,11 @@ A tiny snapshot tool which is compatible with any testing framework and able to 
 
 ```js
 import snap from 'snappy-snaps'
-import assert from 'node:assert'
 
 const data = fetchDogs()
-const expected = snap('Dogs data', data) 
+const expected = snap('Dogs', data) 
 
-assert.deepEquals(expected, data)
+deepEquals(data, expected)
 ```
 
 ## Installation
@@ -38,13 +37,13 @@ import { test } from 'node:test'
 import assert from 'node:assert'
 import snap from 'snappy-snaps'
  
-const fetchData = (id) => fetch(`/api/dogs/${id}`).then((res) => res.json())
+const fetchDog = (id) => fetch(`/api/dogs/${id}`).then((res) => res.json())
  
-test('Your API', async () => {
-  const dog = await fetchData('Rover')
+test('Fetch dog data', async () => {
+  const dog = await fetchDog('Rover')
   const expected = await snap('Rover', dog)
 
-  assert.deepEquals(expected, dog)
+  assert.deepEqual(dog, expected)
 })
 ```
 
