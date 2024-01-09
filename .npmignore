@@ -5,7 +5,6 @@
 .editorconfig
 .eslintignore
 .eslintrc.cjs
-.huskyrc.js
 .lintstagedrc.js
 .prettierignore
 .prettierrc.json
