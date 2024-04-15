@@ -85,6 +85,26 @@ describe('lib/snappy-snaps', () => {
     process.argv.pop()
 
     assert.equal(data.name, 'Gino')
+
+    process.argv.push('--updateSnapshot')
+
+    const data2 = await subject('dog', { name: 'Gino' })
+
+    process.argv.pop()
+
+    assert.equal(data2.name, 'Gino')
+  })
+
+  it('updates snapshots when run with the update environment variable', async () => {
+    await subject('dog', { name: 'Ness' })
+
+    process.env.UPDATE_SNAPSHOT = ''
+
+    const data = await subject('dog', { name: 'Gino' })
+
+    delete process.env.UPDATE_SNAPSHOT
+
+    assert.equal(data.name, 'Gino')
   })
 
   it('warns when snapshots are past their expiry date', async () => {
