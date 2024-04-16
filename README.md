@@ -55,7 +55,7 @@ The created snapshots should be committed with your other code changes, and revi
 
 ### Updating snapshots
 
-You can update your snapshots by running your test command with a `--updateSnapshot` or `-u` flag, by deleting the snapshot file, specifying the "UPDATE_SNAPSHOT" environment variable, or using the `update` option.
+You can update your snapshots by running your test command with a `--updateSnapshot` or `-u` flag, by deleting the snapshot file, specifying the `UPDATE_SNAPSHOT` environment variable, or setting the `update` option to `true`.
 
 ### Expiring snapshots
 
