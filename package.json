@@ -6,7 +6,7 @@
   "exports": "./lib/snappy-snaps.js",
   "types": "./lib/snappy-snaps.d.ts",
   "scripts": {
-    "lint": "eslint . --ext js,cjs,mjs,jsx",
+    "lint": "eslint",
     "format": "prettier --write '**/*.{ts,tsx,js,cjs,mjs,jsx,json,yml}'",
     "spec": "node --test --test-reporter spec",
     "verify": "npm run lint && npm run format",
@@ -34,10 +34,11 @@
     "serialize-javascript": "^6.0.1"
   },
   "devDependencies": {
-    "eslint": "^8.50.0",
+    "eslint": "^9.9.0",
+    "globals": "^15.9.0",
     "husky": "^9.1.0",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.0.0"
+    "prettier": "^3.3.0"
   },
   "engines": {
     "node": ">= 18.0.0"
