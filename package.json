@@ -7,7 +7,7 @@
   "types": "./lib/snappy-snaps.d.ts",
   "scripts": {
     "lint": "eslint",
-    "format": "prettier --write '**/*.{ts,tsx,js,cjs,mjs,jsx,json,yml}'",
+    "format": "prettier $([ $CI ] && echo '--check' || echo '--write') '**/*.{js,jsx,json,yml}'",
     "spec": "node --test --test-reporter spec",
     "verify": "npm run lint && npm run format",
     "test": "npm run verify && npm run spec",
